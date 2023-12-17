@@ -1,7 +1,6 @@
 +++
 title = 'In My Prime'
 date = 2023-12-17T20:37:16+01:00
-draft = true
 +++
 
 ## Challenge Name: In My Prime
@@ -64,7 +63,7 @@ Svaret er derfor: 29 + 17 + 4 = 50
   - and adds the result to the cache.
     This way it will gradually build up a cache and increase the chance to hit a known question!
 
-![Self-learning python script](/automagic-prime-solver.png)
+![Automagic Prime Solver](/automagic-prime-solver.png)
 
 - After the cache of the self-leaning script reached 6K pre-calculated results I also created a "lucky_prime" script, which just
   - calls and checks if the question is in the cache
@@ -76,9 +75,10 @@ In the end first the lucky_prime solved the challenge and on attempt 8.876 the s
 
 ## Flag
 
+```text
 NC3{th3_numb3rs_wh4t_d0_th3y_m3an?}
+```
 
 ## Reflections
 
 <reflections ...>
-
