@@ -1,2 +1,0 @@
-# CTF-NC3-2023
-Writeups for NC3 CTF 2023
