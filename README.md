@@ -1,6 +1,11 @@
 # NC3 CTF Writeups
 
-Welcome to the official GitHub repository for team Adamino's Capture The Flag (CTF) writeups! This repository serves as a comprehensive archive of our team's journey through various CTF challenges, documenting our approaches, solutions, and reflections.
+Welcome to the official GitHub repository for team Adamino's NC3 CTF writeups!
+This repository serves as a comprehensive archive of our team's journey through various CTF challenges, documenting our approaches, solutions, and reflections.
+
+# Adding a writeup
+
+Please use generate-writeups.sh for auto templating of a new writeup!
 
 # About Us
 
