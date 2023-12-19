@@ -80,7 +80,7 @@ but the devil was in the details - the three-second time limit!
 
 ### Initial Approach and Challenges
 
-I developed a script to test if the range of the primes had a lower and upper bound, which revealed that the challenge numbers ranged between 70 million and 100 million, which meant dealing with approximately 1.3 million primes.
+I developed a script to test if the range of the primes had a lower and upper bound and also to see if duplicates would occur, which revealed that the challenge numbers ranged between 70 million and 100 million, which meant dealing with approximately 1.3 million primes and duplicates definitely occured, when requesting more than a thousand primes.
 
 ```python
 import socket
@@ -135,6 +135,8 @@ def main():
 if __name__ == "__main__":
     main()
 ```
+
+[Download script](scripts/identify_duplicates_in_my_prime.py)
 
 Based on this knowledge, my first approach was to research the best way to efficiently compute up to 100M primes!
 I came across "The Sieve of Eratosthenes", upon which I based the following implementation
@@ -286,6 +288,8 @@ Enter the question (or enter -1 to exit): 99043661
 Result for N = 99043661: 83814368
 Calculation time: 10.67 seconds.
 ```
+
+[Download script](scripts/in_my_prime_runtime.py)
 
 However, it quickly became evident that Python's execution time exceeded the allotted three seconds, indicating the necessity for a pre-calculated approach!
 
@@ -452,6 +456,9 @@ if __name__ == "__main__":
     main()
 ```
 
+[Download script](scripts/in_my_prime.py)
+[Download cache file](scripts/results.pkl)
+
 ![Automagic Prime Solver](images/automagic-prime-solver.png)
 
 2. My second apporach was to "simply" Compute-All-Solutions in Rust (being one of the faster languages):
@@ -597,7 +604,9 @@ fn main() {
 
 ```
 
-### The Breakthrough
+[Download script](scripts/in_my_prime.rs)
+
+### Getting "lucky"
 
 As the Python script's cache grew to 6,000 pre-calculated results, I developed a "Lucky Prime" script that would:
 
@@ -605,11 +614,92 @@ As the Python script's cache grew to 6,000 pre-calculated results, I developed a
 - Check the cache for a pre-calculated answer.
 - Disconnect if the answer wasn't in the cache, saving the question for later.
 - Retry until it hit a known question.
+- For every 1000 questions it saves the encountered questions to a file (for later sanity checking...)
+
+```python
+import socket
+import pickle
+import sys
+from collections import Counter
+
+def get_question_from_server(socket_connection):
+    # ... [same as in previous example] ...
+
+def submit_answer(socket_connection, answer):
+    # ... [same as in previous example] ...
+
+def load_results(filename):
+    try:
+        with open(filename, 'rb') as file:
+            return pickle.load(file)
+    except FileNotFoundError:
+        return {}
+
+def save_questions(questions, filename):
+    with open(filename, 'wb') as file:
+        pickle.dump(questions, file)
+
+def challenge_solved(response):
+    challenge_timeout_answer = "Sorry, too slow. Please try again."
+    return response != challenge_timeout_answer and response != ""
+
+def main():
+    server_address = ('inmyprime.nc3', 3119)
+    challenge_wrong_answer_message = "Nope, wrong answer. Please try again."
+    result_not_pre_calculated_message = "Result not pre-calculated :(... Disconnecting and trying again!"
+    results_filename = 'results.pkl'
+    questions_filename = 'questions.pkl'
+    results = load_results(results_filename)
+    questions = load_results(questions_filename)
+    question_count = Counter(questions)
+    attempts = 0
+
+    print("Welcome to Lucky Prime Solver! Let's go!")
+    response_from_server = ""
+
+    while not challenge_solved(response_from_server):
+        attempts += 1
+        print("\nAttempt {}...".format(attempts))
+
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.connect(server_address)
+            question_number = get_question_from_server(s)
+
+            if question_number is not None:
+                question_count[question_number] += 1
+                if len(question_count) % 1000 == 0:
+                    save_questions(list(question_count.elements()), questions_filename)
+                    print(f"Saved {len(question_count)} questions to {questions_filename}")
+                    repeat_count = sum(1 for count in question_count.values() if count > 1)
+                    print(f"Numbers seen more than once: {repeat_count}")
+
+            result = results.get(question_number, result_not_pre_calculated_message)
+            if result == result_not_pre_calculated_message:
+                print(result_not_pre_calculated_message)
+                continue
+            else:
+                response_from_server = submit_answer(s, result)
+
+            if response_from_server == challenge_wrong_answer_message:
+                print("Oh noes! Wrong answer! How could this happen!? :( Stopping process, because you need to fix this!")
+                sys.exit(1)
+
+    print(f"\nOMFG.. this print either means that something bad happened... or YOU'RE DA FUCKING MAN!: {response_from_server}")
+
+if __name__ == "__main__":
+    main()
+
+```
+
+[Download script](scripts/lucky_prime.py)
 
 ![Lucky Prime](images/lucky-prime.png)
-Finally, on the 8,876th attempt, success was achieved! The "Lucky Prime" script cracked the challenge first, closely followed by our self-learning Python script.
 
-In the end first the lucky_prime solved the challenge and on attempt 8.876 the self-learning script also succeeded!
+Due to the nature of the "lucky prime" script, I was capable of spawning several instances of it, in order to increase the chance of a lucky hit!
+
+Finally, on the 8,876th attempt, success was achieved! The self-learning Python script cracked the challenge!
+
+![Solved](images/solved.png)
 
 ## Flag
 
@@ -619,8 +709,252 @@ NC3{th3_numb3rs_wh4t_d0_th3y_m3an?}
 
 ## Reflections and Learnings
 
-This challenge was a testament to the importance of optimization and strategy in problem-solving. It underscored the need for efficient computation, especially when dealing with large datasets and tight time constraints. The experience was a valuable lesson in balancing brute-force approaches with intelligent caching and pre-calculation strategies.
+This challenge was a testament to the importance of optimization and strategy in problem-solving. It stressed the need for efficient computation, especially when dealing with large datasets and tight time constraints. The experience was a valuable lesson in balancing brute-force approaches with intelligent caching and pre-calculation strategies.
 
 Overall, "In My Prime" was not just a test of mathematical prowess but also a challenge of computational efficiency and algorithmic thinking.
 
-In your write-up, make sure to include any specific code snippets or algorithms you found particularly interesting or challenging. Personal anecdotes or moments of realization can also add a great narrative quality to the write-up.
+I did attempt to optimize the computation in both Python and Rust by utilising threadpools, which I unfortunately couldn't get under 3 seconds.
+
+Something that helped me out a lot during the Python develpoment was to add tests for the individual computations, especially for the provided example, and for sanity checking that the response was handled correctly from the server!
+
+```python
+import unittest
+import pickle
+from unittest.mock import patch, MagicMock, mock_open
+from in_my_prime import (
+    compute_primes_up_to_limit_with_sieve_of_eratosthenes,
+    solve_first_calculation,
+    solve_second_calculation,
+    solve_third_calculation,
+    get_question_from_server,
+    load_results,
+    main
+    )
+
+class PrimeSolverTests(unittest.TestCase):
+    expected_primes = [23, 19, 17, 13, 11, 7, 5, 3, 2]
+
+    def test_compute_primes_up_to_23(self):
+        primes = compute_primes_up_to_limit_with_sieve_of_eratosthenes(23)
+        self.assertEqual(primes.tolist(), self.expected_primes)
+
+    def test_solve_first_calculation_with_known_primes(self):
+        result = solve_first_calculation(self.expected_primes)
+        expected_sum = 29
+        self.assertEqual(result, expected_sum)
+
+    def test_solve_second_calculation_with_known_primes(self):
+        result = solve_second_calculation(self.expected_primes)
+        expected_result = 17
+        self.assertEqual(result, expected_result)
+
+    def test_solve_third_calculation_with_known_primes(self):
+        result = solve_third_calculation(self.expected_primes)
+        expected_result = 4
+        self.assertEqual(result, expected_result)
+
+    def test_get_question_from_server_with_valid_input(self):
+        question_number = 23
+        mock_socket_connection = MagicMock()
+        mock_socket_connection.recv.return_value = f"Hello there, are you ready?\nHere's the question: \n{question_number}".encode('utf-8')
+        extracted_number = get_question_from_server(mock_socket_connection)
+        self.assertEqual(extracted_number, question_number)
+
+
+    def test_main_wrong_answer_response(self):
+        question_number = 23
+        wrong_answer = 1337
+        pre_calculated_results = {question_number: wrong_answer}
+        mock_file_read = mock_open(read_data=pickle.dumps(pre_calculated_results))
+        with patch('socket.socket') as mock_socket, patch('builtins.open', mock_file_read):
+            mock_socket_instance = MagicMock()
+            mock_socket_instance.recv.side_effect = [
+                f"Hello there, are you ready?\nHere's the question: \n{question_number}".encode('utf-8'),
+                "Nope, wrong answer. Please try again.".encode('utf-8')
+            ]
+            mock_socket.return_value.__enter__.return_value = mock_socket_instance
+            with self.assertRaises(SystemExit):
+                main()
+
+    def test_main_challenge_solved_with_flag(self):
+        question_number = 23
+        pre_calculated_results = {question_number: 50}
+        mock_file_read = mock_open(read_data=pickle.dumps(pre_calculated_results))
+        flag_message = "Correct. Here's your prize: NC3{th3_numb3rs_wh4t_d0_th3y_m3an?}"
+
+        with patch('socket.socket') as mock_socket, patch('builtins.open', mock_file_read):
+            mock_socket_instance = MagicMock()
+            # Simulate server responses for initial question and receiving the flag
+            mock_socket_instance.recv.side_effect = [
+                f"Hello there, are you ready?\nHere's the question: \n{question_number}".encode('utf-8'),
+                flag_message.encode('utf-8')
+            ]
+            mock_socket.return_value.__enter__.return_value = mock_socket_instance
+
+            # Run the main function and check for the correct handling of the flag
+            main()
+
+if __name__ == '__main__':
+    unittest.main()
+
+```
+
+[Download script](scripts/test_in_my_prime.py)
+
+Following the conclusion of the event, I saw a solution written in C, which is actually fast enough to solve the challenge on runtime, which is really impressive!
+So for future similar challenges it might be a route worthwhile considering!
+
+See script below, developed by an anonymous competitor in the event!
+
+```c
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+
+void sieveOfEratosthenes(int n, bool prime[]) {
+	for (int i = 0; i <= n; i++) {
+		prime[i] = true;
+	}
+
+	prime[0] = false;
+	prime[1] = false;
+	for (int i = 2; i * i <= n; i++) {
+		if (prime[i]) {
+			for (int j = i * i; j <= n; j += i) {
+				prime[j] = false;
+			}
+		}
+	}
+}
+
+int getprimenumbers(int n, int primenumbers[]) {
+	bool *prime = malloc((n+1) * sizeof(bool));
+	sieveOfEratosthenes(n, prime);
+	int primenumberscount = 0;
+
+	for (int i = 0; i <= n; i++) {
+		if (prime[i]) {
+			primenumbers[primenumberscount++] = i;
+		}
+	}
+	return primenumberscount;
+}
+
+int sumeveryother(int primenumbers[], int primenumberscount) {
+	int sum = 0;
+	for (int i = primenumberscount -1; i >= 0; i-=2) {
+		//sum most significant digit and least significant digit
+		/*
+		int len = snprintf(NULL, 0, "%d", primenumbers[i]);
+		char str[len + 1];
+		sprintf(str, "%d", primenumbers[i]);
+		sum += str[0] - '0';
+		sum += str[len - 1] - '0';
+		*/
+		int num = primenumbers[i];
+		int last = num % 10;
+		while (num > 9) {
+			num /= 10;
+		}
+		int first = num;
+		sum += first + last;
+	}
+	return sum;
+}
+
+int sumbase7(int primenumbers[], int primenumberscount) {
+	int sum = 0;
+	for (int i = primenumberscount -1; i >= 0; i-=3) {
+		int num = primenumbers[i];
+		while (num > 0) {
+			sum += num % 7;
+			num /= 7;
+		}
+	}
+	return sum;
+}
+
+int fifth(int primenumbers[], int primenumberscount) {
+	int sum = 0;
+	for (int i = primenumberscount -1; i > 0; i-=5) {
+		long num = (primenumbers[i] * (long)(primenumbers[i-1])) % 31337;
+		//count uneven digits
+		int count = 0;
+		while (num > 0) {
+			if (num % 2 == 1) {
+				count++;
+			}
+			num /= 10;
+		}
+		sum += count;
+	}
+	return sum;
+}
+
+int solve(int n) {
+	int *primenumbers = malloc(n * sizeof(int));
+	int primenumberscount = getprimenumbers(n, primenumbers);
+	int sum = sumeveryother(primenumbers, primenumberscount);
+	sum += sumbase7(primenumbers, primenumberscount);
+	sum += fifth(primenumbers, primenumberscount);
+	return sum;
+}
+
+
+void test() {
+	int N = 23;
+	int primenumbers[N];
+	int primenumberscount = getprimenumbers(N, primenumbers);
+	for (int i = primenumberscount -1; i >= 0; i--) {
+		printf("%d ", primenumbers[i]);
+	}
+	printf("\n");
+	for (int i = primenumberscount -1; i >= 0; i-=2) {
+		printf("%d ", primenumbers[i]);
+	}
+	printf("\n");
+	for (int i = primenumberscount -1; i >= 0; i-=3) {
+		printf("%d ", primenumbers[i]);
+	}
+	printf("\n");
+	for (int i = primenumberscount -1; i >= 0; i-=5) {
+		printf("%d ", primenumbers[i]);
+	}
+	printf("\n");
+	int sum = sumeveryother(primenumbers, primenumberscount);
+	printf("%d\n", sum);
+	sum = sumbase7(primenumbers, primenumberscount);
+	printf("%d\n", sum);
+	sum = fifth(primenumbers, primenumberscount);
+	printf("%d\n", sum);
+
+	sum = solve(N);
+	printf("%d\n", sum);
+
+	sum = solve(97);
+	printf("%d\n", sum);
+
+	sum = solve(997);
+	printf("%d\n", sum);
+
+	sum = solve(549979);
+	printf("%d\n", sum);
+}
+
+
+
+int main(void) {
+	//test();
+	int num;
+	scanf("%d", &num);
+	int sum = solve(num);
+	printf("%d\n", sum);
+	return 0;
+}
+
+> Output
+Result for N = 99043661: 83814368
+Calculation time: 1.93 seconds.
+```
+
+[Download script](scripts/InMyPrime.c)
