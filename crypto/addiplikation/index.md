@@ -93,7 +93,7 @@ There's a lot of false characters that could modulo == 0, but our correct charac
 
 Printing all the most likely candidate characters gives us:
 
-```bash
+```text
 Most likely character: }
 Most likely character: s
 Most likely character: h
