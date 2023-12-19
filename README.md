@@ -13,7 +13,7 @@ Our CTF team is a group of cybersecurity enthusiasts, united by our passion for 
 
 ## How We Approach CTF Challenges
 
-Our approach to tackling CTF challenges is methodical yet creative. We believe in collaborative problem-solving, where each team member brings their unique skills and perspectives to the table. [You can elaborate on your team's strategy, tools used, or how you divide tasks.]
+Our approach to tackling CTF challenges is methodical yet creative. We believe in collaborative problem-solving, where each team member brings their unique skills and perspectives to the table.
 
 Connect with Us
 We love connecting with fellow CTF enthusiasts and cybersecurity professionals. Find us on [Discord](https://discord.gg/79snmecfW9).
