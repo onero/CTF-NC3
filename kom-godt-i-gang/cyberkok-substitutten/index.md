@@ -1,7 +1,7 @@
 
 +++
 
-title = 'cyberkok-substitutten'
+title = 'Cyberkok Substitutten'
 
 date = 2023-12-01T10:04:58+01:00
 
@@ -13,7 +13,7 @@ date = 2023-12-01T10:04:58+01:00
 
   
 
-cyberkok-substitutten
+Cyberkok Substitutten
 
   
 
