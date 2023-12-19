@@ -11,7 +11,11 @@ read -p "Category of the Challenge: " category
 read -p "Date of Completion (YYYY-MM-DDTHH:MM:SS+ZZ:ZZ) [Default: current date]: " date
 
 # Default date if not provided
-date=${date:-$(date +"%Y-%m-%dT%H:%M:%S%z")}
+if [ -z "$date" ]; then
+    date=$(date +"%Y-%m-%dT%H:%M:%S")
+    tz=$(date +%z | sed 's/\(.\{3\}\)/\1:/')
+    date="$date$tz"
+fi
 
 # Convert title and category to URL-friendly slugs
 title_slug=$(slugify "$title")
