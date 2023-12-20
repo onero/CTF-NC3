@@ -1,5 +1,6 @@
 +++
 title = 'One Time Slider'
+categories = ['kom-godt-i-gang']
 date = 2023-12-01T10:05:14+01:00
 +++
 

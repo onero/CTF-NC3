@@ -1,5 +1,6 @@
 +++
 title = 'Haaukins Intro'
+categories = ['kom-godt-i-gang']
 date = 2023-12-01T10:02:14+01:00
 +++
 
