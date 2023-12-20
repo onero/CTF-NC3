@@ -27,13 +27,6 @@ So on our Kali box we do a
 ```bash
 ┌──(haaukins㉿kali)-[~]
 └─$ nmap --open 77.52.35.0/24
-Starting Nmap 7.93 ( https://nmap.org ) at 2023-12-19 16:46 EST
-Nmap scan report for 77.52.35.3
-Host is up (0.00074s latency).
-Not shown: 999 closed tcp ports (conn-refused)
-PORT   STATE SERVICE
-53/tcp open  domain
-
 Nmap scan report for 77.52.35.5
 Host is up (0.0010s latency).
 Not shown: 998 filtered tcp ports (no-response)

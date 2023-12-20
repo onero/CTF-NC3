@@ -715,7 +715,7 @@ Overall, "In My Prime" was not just a test of mathematical prowess but also a ch
 
 I did attempt to optimize the computation in both Python and Rust by utilising threadpools, which I unfortunately couldn't get under 3 seconds.
 
-Something that helped me out a lot during the Python develpoment was to add tests for the individual computations, especially for the provided example, and for sanity checking that the response was handled correctly from the server!
+Something that helped me out a lot during the Python development was to add tests for the individual computations, especially for the provided example, and for sanity checking that the response was handled correctly from the server!
 
 ```python
 import unittest
