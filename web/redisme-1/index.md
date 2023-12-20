@@ -1,5 +1,6 @@
 +++
 title = 'RedisMe 1'
+categories = ['Web']
 date = 2023-12-10T22:00:18+01:00
 +++
 

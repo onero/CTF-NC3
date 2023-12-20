@@ -1,6 +1,6 @@
 +++
 title = 'Cyberkok Substitutten'
-categories = ['kom-godt-i-gang']
+categories = ['Kom godt i gang']
 date = 2023-12-01T10:04:58+01:00
 +++
 

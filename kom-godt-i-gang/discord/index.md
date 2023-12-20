@@ -1,6 +1,6 @@
 +++
 title = 'Discord'
-categories = ['kom-godt-i-gang']
+categories = ['Kom godt i gang']
 date = 2023-12-01T10:01:58+01:00
 +++
 

@@ -1,6 +1,6 @@
 +++
 title = 'Start her'
-categories = ['kom-godt-i-gang']
+categories = ['Kom godt i gang']
 date = 2023-12-01T10:00:50+01:00
 +++
 
