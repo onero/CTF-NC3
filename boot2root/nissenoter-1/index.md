@@ -364,7 +364,7 @@ Session completed.
 We managed to crack the Bcrypt passwords, despite it taking close to an hour! It doesn't however appear that they changed their passwords. This leaves us the following credential notes
 
 ```text
-| **Password**   | **Username** |
+|   Password     |   Username   |
 | -------------- | ------------ |
 | 12345678       | (smukke)     |
 | chocolate      | (gunter)     |
