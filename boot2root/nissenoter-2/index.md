@@ -2,7 +2,6 @@
 title = 'Nissenoter 2'
 categories = ['Boot2Root']
 date = 2023-12-15T14:33:38+01:00
-draft = true
 +++
 
 ## Challenge Name:
