@@ -2,6 +2,7 @@
 title = 'Cyberkok Eksklusiv opskrift'
 categories = ['Kom godt i gang']
 date = 2023-12-01T10:05:00+01:00
+scrollToTop = true
 +++
 
 ## Challenge Name:

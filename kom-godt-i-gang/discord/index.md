@@ -2,6 +2,7 @@
 title = 'Discord'
 categories = ['Kom godt i gang']
 date = 2023-12-01T10:01:58+01:00
+scrollToTop = true
 +++
 
 ## Challenge Name:

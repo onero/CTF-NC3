@@ -2,6 +2,7 @@
 title = 'Cyberkok Hekseri'
 categories = ['Kom godt i gang']
 date = 2023-12-01T10:04:59+01:00
+scrollToTop = true
 +++
 
 ## Challenge Name:

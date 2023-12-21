@@ -2,6 +2,7 @@
 title = 'addiplikation'
 categories = ['Crypto']
 date = 2023-12-12T22:11:37+01:00
+scrollToTop = true
 +++
 
 ## Challenge Name:

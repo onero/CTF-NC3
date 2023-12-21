@@ -2,6 +2,7 @@
 title = 'One Time Slider'
 categories = ['Kom godt i gang']
 date = 2023-12-01T10:05:14+01:00
+scrollToTop = true
 +++
 
 ## Challenge Name:

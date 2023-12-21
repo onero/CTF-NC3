@@ -2,6 +2,7 @@
 title = 'Rudolfs Simple Algoritme'
 categories = ['Kom godt i gang']
 date = 2023-12-01T10:10:50+01:00
+scrollToTop = true
 +++
 
 ## Challenge Name:
