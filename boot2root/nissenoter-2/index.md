@@ -237,6 +237,8 @@ rrensdyr@edc9b2907c7e:~$ cat flag.txt
 NC3{1. Snup passwd; 2. Genbrug er god brug; 3: ????; 4: Profit!}
 ```
 
+Now we can go submit the second flag and move on to the final stage in [Nissenoter 3](/nc3/boot2root/nissenoter-3)!
+
 ## Flag
 
 ```text
