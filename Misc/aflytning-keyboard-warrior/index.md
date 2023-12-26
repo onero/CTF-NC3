@@ -174,7 +174,7 @@ If we replace `<SPACE>` with an actual space, and `<RET>` with a newline, then a
 ```
 
 The output text is a lot more legible:
-```
+```text
 Kaere Nissedagbog!
 
 I dag har jeg vaeret paa besoeg hos Hhr. Mortensen for at laere mere om udvikling af kundeorienterede loesninger.
