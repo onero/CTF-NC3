@@ -49,7 +49,7 @@ Looking into the descriptor packages for each devices, shows us who made it and 
 ![](images/descriptor-packet.png)
 
 Looking at all 4 devices, we're left with this:
-```
+```text
 3.1.0 = 
     * idVendor: Linux Foundation
     * idProduct: 2.0 root hub
