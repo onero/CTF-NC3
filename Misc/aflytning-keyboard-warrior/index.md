@@ -14,7 +14,7 @@ Aflytning: keyboard warrior
 Misc
 
 ## Challenge Description:
-```
+```text
 Vi har troværdige efterretninger der peger på, at nissedev er indblandet i udviklingen af Nisseware!
 
 Ved en hemmelig ransagning har vi installeret aflytning af hans trådløse devices. Kan du decode den aflyttede data og identificere hans rolle?
