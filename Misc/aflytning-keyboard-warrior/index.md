@@ -38,7 +38,7 @@ Our first task is figuring out which USB device is the keyboard.
 
 If we open the file in Wireshark and take a look at the packets captured, it neatly starts out with a bunch of DESCRIPTOR packages.
 We can see there's 4 USB devices involved:
-```
+```text
 3.1.0
 3.2.0
 3.4.0
