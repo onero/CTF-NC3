@@ -154,11 +154,14 @@ if __name__ == "__main__":
 ```
 
 Which produces this output:
-```
+```text
 Kaere<SPACE>Nissedagbog!<RET><RET>I<SPACE>dag<SPACE>har<SPACE>jeg<SPACE>vaeret<SPACE>paa<SPACE>besoeg<SPACE>hos<SPACE>Hhr.<SPACE>Mortensen<SPACE>for<SPACE>at<SPACE>laere<SPACE>mere<SPACE>om<SPACE>udvikling<SPACE>ad<SPACE><DEL><DEL>f<SPACE>ransoma<DEL>ware<DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL>betalingsplatforme<DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL>kundeorienterede<SPACE>loesninger.<RET>Det<SPACE>er<SPACE>super<SPACE>kedeligt<DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL>spaendende,<SPACE>og<SPACE>jeg<SPACE>laerer<SPACE>en<SPACE>HEL<SPACE>masse,<SPACE>jeg<SPACE>ikke<SPACE>vidsee<DEL><DEL>te<SPACE>foer!<RET><RET>I<SPACE>morgen<SPACE>skal<SPACE>jeg<SPACE>paa<SPACE>besoeg<SPACE>hos<SPACE>Nnissefar,<SPACE>saa<SPACE>de<SPACE>kan<SPACE>teste<SPACE>om<SPACE>jeg<SPACE>allerede<SPACE>nu<SPACE>er<SPACE>klar<SPACE>til<SPACE>at<SPACE>komme<SPACE>paa<SPACE>udviklerholdet!<RET>Det<SPACE>ville<SPACE>vaere<SPACE>ret<SPACE>cool<SPACE>at<SPACE>vaere<SPACE>medudvikler<SPACE>paa<SPACE>et<SPACE>saa<SPACE>indbringende<SPACE>produl<DEL>kt!<RET>Maaske<SPACE>jeg<SPACE>endda<SPACE>kan<SPACE>gaa<SPACE>selvstaendig<SPACE>og<SPACE>r<DEL>tjene<SPACE>en<SPACE>masse<SPACE>penge<SPACE>udeom<DEL><DEL>nom<SPACE>ding<SPACE><DEL><DEL><DEL><DEL>en<SPACE>naerrige<SPACE>nissefar!<DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL>Jjeg<SPACE>mener...<DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><DEL><RET>Jjeg<SPACE>haaber<SPACE>det<SPACE>kommer<SPACE>til<SPACE>at<SPACE>gaa<SPACE>rigtig<SPACE>godt<SPACE>ale<DEL>t<SPACE>sammen!<RET><RET>NC3{alt<DEL><DEL><DEL>4lt_k<DEL><DEL><DEL><DEL><DEL>pas<DEL><DEL>4s_paa_hv4d_-du_skriver<DEL><DEL><DEL><DEL><DEL><DEL><DEL>5kr1v3r_n1ss3d3v_maaske_nogen<DEL><DEL><DEL><DEL>0ge<DEL>3n_foelger_med<DEL><DEL>3d!}<RET><RET>XOXO<SPACE>nissedev<RET>
 ```
 
 While the text is obviously correct (it's danish), and with a bit of manual manipulation in the final part, the flag is easily retrievable, I had to go back and modify the script a bit.
+
+**_NOTE:_** For anyone that reads danish, try reading through the text - there's a A LOT of editing going on while the text is being created, most of it is pretty funny :)
+
 
 If we replace `<SPACE>` with an actual space, and `<RET>` with a newline, then add a bit of handling for backspace:
 ```python
