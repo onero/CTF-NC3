@@ -101,7 +101,7 @@ This gives us a file containing all keystrokes from the keyboard, in this format
 Since this was my first time working with USB packets, I just started playing around with a python script, based on what I could find on the internet. Nothing matched perfectly (which I'm sure is on purpose from the creators), but I was able to figure out the structure pretty fast
 
 Manually manipulating the data  down to the fields that actually change between lines, I was left with this format:
-```
+```text
 020000
 020e00
 020000
