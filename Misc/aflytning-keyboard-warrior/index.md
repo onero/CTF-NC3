@@ -88,7 +88,7 @@ Lets get those packets extracted, that's where t-shark comes in:
 `tshark -r keyboard.pcapng -T fields -e usbhid.data > capdata.txt`
 
 This gives us a file containing all keystrokes from the keyboard, in this format:
-```
+```text
 200201000700000000000000000000
 200201000000000000000000000000
 200201000400000000000000000000
