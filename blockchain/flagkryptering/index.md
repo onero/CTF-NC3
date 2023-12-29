@@ -55,6 +55,9 @@ Lets ignore the if statements for now an focus on the key generation itself.
 Next up is ```abi.encodePacked```. The primary purpose of ```abi.encodePacked``` is to concatenate and pack multiple values together into a single byte array. When used with a single value, it essentially performs a byte convertion, converting the uint to a byte array.
 
 The result is then passed to a ```keccak256``` method also known as ```SHA-3``` converting the byte array into a hash and then once again doing a redundant type convertion as ```keccak256``` already returns a ```byte32```.
+https://en.wikipedia.org/wiki/SHA-3
+https://docs.soliditylang.org/en/v0.8.11/abi-spec.html
+https://docs.soliditylang.org/en/latest/units-and-global-variables.html
 
 
 Log from script:
