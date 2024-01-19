@@ -1,8 +1,7 @@
 +++
-title = 'flagkryptering'
-categories = ['blockchain']
-date = 2024-12-09T10:12:15+01:00
+title = 'Flagkryptering'
 categories = ['Blockchain']
+date = 2023-12-09T10:12:15+01:00
 +++
 
 ## Challenge Name:
@@ -111,7 +110,7 @@ Found at block number: 16, Ciphertext: NC3{you_replicated_the_key}
 
 ## Flag
 
-```
+```text
 NC3{you_replicated_the_key}
 ```
 
