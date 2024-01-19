@@ -2,7 +2,7 @@
 title = 'flagkryptering'
 categories = ['blockchain']
 date = 2024-12-09T10:12:15+01:00
-scrollToTop = true
+categories = ['Blockchain']
 +++
 
 ## Challenge Name:
