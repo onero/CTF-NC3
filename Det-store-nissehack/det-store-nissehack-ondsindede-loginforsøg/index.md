@@ -42,7 +42,7 @@ I tried the following automated approaches to identify anomalies:
 [Script](scripts/group_by_function.py)
 
 Using a script to categorize and count log entries, I found the data suspiciously uniform, which suggested it was fabricated for the challenge:
-```
+```text
 Log Categories and Counts:
 Crea sudo: 834
 Stopped OpenBDS: 834
@@ -67,7 +67,7 @@ Next, I analyzed logins grouped by IP addresses. Surprisingly, every login attem
 #### 3. Inspecting Sudo Commands
 [Script](scripts/inspect_sudo_commands.py)
 I then examined the executed sudo commands:
-```
+```text
 /bin/scp
 /bin/cat
 /bin/cp
@@ -101,7 +101,7 @@ After running the first few and manually inspecting them, I noticed all of them 
 I added a filter to remove those and ran again.
 
 Only one IP was left: 
-```
+```text
 ...
 Checking IP: 93.95.228.125
 Checking IP: 209.38.243.124
