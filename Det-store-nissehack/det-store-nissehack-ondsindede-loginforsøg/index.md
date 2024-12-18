@@ -1,6 +1,6 @@
 +++
 title = 'Det store nissehack: Ondsindede Loginforsøg'
-categories = ['Forensic']
+categories = ['Forensics']
 date = 2024-12-17T18:39:25+01:00
 scrollToTop = true
 +++
