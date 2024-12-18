@@ -91,7 +91,7 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra)
 
 ### Getting second flag
 
-Shortly after logging into portal, I was immediately greeted with the second flag, which was we can submit and move on to [Nisseportalen3](/nc3/boot2root/nisseportalen-3)!
+Shortly after logging into portal, I was immediately greeted with the second flag, which was we can submit and move on to [Nisseportalen 3](/nc3/boot2root/nisseportalen-3)!
 
 ![Foothold](images/foothold.png)
 
