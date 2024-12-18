@@ -33,6 +33,8 @@ Men vær beredt, det er ikke til at sige hvad Nissedev har haft gang i...
 
 ### Getting first flag
 
+Thanks to "" we can submit the first flag and move on to [Nisseportalen 2](/nc3/boot2root/nisseportalen-2)!
+
 ## Flag
 
 ```text

@@ -31,7 +31,9 @@ Men vær beredt, det er ikke til at sige hvad Nissedev har haft gang i...
 
 ### Getting foothold on the webapp
 
-### Getting first flag
+### Getting fourth flag
+
+Thanks to "" we can submit the fourth flag and move on to the final challenge [Nisseportalen 5](/nc3/boot2root/nisseportalen-5)!
 
 ## Flag
 

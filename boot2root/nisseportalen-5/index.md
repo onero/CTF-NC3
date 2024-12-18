@@ -31,7 +31,7 @@ Men vær beredt, det er ikke til at sige hvad Nissedev har haft gang i...
 
 ### Getting foothold on the webapp
 
-### Getting first flag
+### Getting final flag
 
 ## Flag
 
