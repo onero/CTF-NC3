@@ -1,6 +1,6 @@
 +++
 title = 'Det store nissehack: Alternativ Kodedeling'
-categories = ['Forensic']
+categories = ['Forensics']
 date = 2024-12-17T18:40:25+01:00
 scrollToTop = true
 +++
