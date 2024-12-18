@@ -1,6 +1,6 @@
 +++
 title = 'Det store nissehack: Kodedepotets Hemmeligheder'
-categories = ['Det store nissehack']
+categories = ['osint']
 date = 2024-12-17T18:40:25+01:00
 scrollToTop = true
 +++
@@ -57,7 +57,7 @@ Rather than attempting brute-force methods, I decided to focus on systematic OSI
 #### Following the threads
 
 **1: Github**
-A common first step in OSINT challenges is checking GitHub for user profiles. Searching for the email alias `datagnasker`
+A common first step in OSINT challenges is checking GitHub for user profiles, this was mostly done based on intuition from previous CTF's. Searching for the email alias `datagnasker`
 https://github.com/search?q=datagnasker&type=users
 
 ![Github](images/Github.png)
