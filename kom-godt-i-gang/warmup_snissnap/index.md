@@ -15,7 +15,7 @@ Warmup Snissnap
 Kom godt i gang
 
 ## Description
-We were given a file [`snissnap_besked.txt`](snissnap_besked.txt) containing a sequence of hexadecimal values. The challenge description hinted at a "Warmup" task.
+We were given a file [snissnap_besked.txt](snissnap_besked.txt) containing a sequence of hexadecimal values. The challenge description hinted at a "Warmup" task.
 
 ## Recon
 
