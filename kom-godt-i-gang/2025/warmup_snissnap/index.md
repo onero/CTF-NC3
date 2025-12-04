@@ -1,5 +1,5 @@
 +++
-date = "2025-12-01"
+date = "2025-12-01T10:03:59+01:00"
 title = "Snissnap"
 categories = ['Kom godt i gang']
 tags = ["CTF", "NC3", "Crypto", "Encoding"]
