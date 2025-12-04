@@ -56,6 +56,8 @@ To exploit this, we simply needed to:
 
 We wrote a python script [solve_replay.py](scripts/solve_replay.py) that implements the client encryption (using the provided keys) and performs the replay attack.
 
+We can now move on to [Ønskomania 7000](/nc3/crypto/2025/crypto_ønskomania_7000)!
+
 ## Flag
 
 ```text
