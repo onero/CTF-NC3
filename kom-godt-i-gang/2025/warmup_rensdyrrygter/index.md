@@ -1,5 +1,5 @@
 +++
-date = "2025-12-01"
+date = "2025-12-01T10:05:59+01:00"
 title = "Rensdyrrygter"
 categories = ['Kom godt i gang']
 slug = "warmup_rensdyrrygter"
