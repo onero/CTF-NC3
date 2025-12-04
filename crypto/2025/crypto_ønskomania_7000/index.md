@@ -72,6 +72,8 @@ def aesgcm_encrypt_with_shared(key, plaintext, aad):
     return nonce + aesgcm.encrypt(nonce, plaintext, aad)
 ```
 
+We can now move on to the final chapter [Ønskomaten_v24_12](/nc3/crypto/2025/crypto_ønskomaten_v24_12)!
+
 ## Flag
 
 ```text
