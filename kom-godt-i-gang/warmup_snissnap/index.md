@@ -1,14 +1,14 @@
 +++
 date = "2025-12-01"
-title = "Warmup Snissnap"
-slug = "warmup_snissnap"
+title = "Snissnap"
+categories = ['Kom godt i gang']
 tags = ["CTF", "NC3", "Crypto", "Encoding"]
 author = "Onero"
 +++
 
 ## Challenge Name:
 
-Warmup Snissnap
+Warmup: Snissnap
 
 ## Category:
 

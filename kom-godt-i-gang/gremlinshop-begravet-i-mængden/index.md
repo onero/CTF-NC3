@@ -1,6 +1,6 @@
 +++
-title = 'Gremlinshop: Begravet i mængden'
-categories = ['Warmup']
+title = 'Gremlinshop'
+categories = ['Kom godt i gang']
 tags = ["CTF", "NC3", "Crypto", "Encoding"]
 date = 2025-12-02
 scrollToTop = true
@@ -9,7 +9,7 @@ author = "Onero"
 
 ## Challenge Name:
 
-Gremlinshop: Begravet i mængden
+Gremlinshop: Begravet i mængden - Autoriseret Adgang - Men hvilken aktør?
 
 ## Category:
 
@@ -29,6 +29,7 @@ https://tryhackme.com/jr/gremlinshop
 
 ### Webshop Recon: 
 We started out by visiting the storefront and browsed visible items to understand page structure and how item IDs were used.
+![The storefront](images/webshop.png)
 
 ### ID Enumeration: 
 We see quite a few products on the page and start out by enumerating how many we might be able to find
@@ -89,7 +90,8 @@ ________________________________________________
 21                      [Status: 200, Size: 1895, Words: 441, Lines: 59, Duration: 71ms]
 ```
 Hidden Item (ID 13)!
-Navigating directly to the missing ID revealed a hidden product; ID 13 was the lucky find. [Flag 1](images/flag_1.png).
+Navigating directly to the missing ID revealed a hidden product; ID 13 was the lucky find. 
+![Flag 1](images/flag_1.png)
 
 ### SQL Injection (Login)
 The login for item/user path 2 was vulnerable to SQL injection, enabling auth bypass. 
@@ -99,15 +101,16 @@ lagerlasse
 ' OR 1=1; --
 ```
 
-Proof: [Flag 2](images/flag_2.png).
+Proof: ![Flag 2](images/flag_2.png)
 
 ### Admin Insights
 Logging in as admin exposed extra user details and a lead to a user listing. Reference: [users.txt](users.txt).
 
 ### Kasse Karlo → Final Flag
-Using the insights, logging in as “Kasse Karlo” revealed the final flag. [Flag 3](images/flag_3.png).
+Using the insights, logging in as “Kasse Karlo” revealed the final flag. 
+![Flag 3](images/flag_3.png)
 
-## Flag
+## Flags
 
 ```text
 NC3{D0_no7_5tOr3_S3cr3ts_1N_br0wse4bl6_9l4ceS}
