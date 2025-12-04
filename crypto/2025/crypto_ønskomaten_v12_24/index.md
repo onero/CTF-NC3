@@ -76,7 +76,7 @@ Finally, we convert the integers $a$ and $b$ back to bytes and concatenate them 
 
 Final solving script can be seen [here](scripts/solve.py)
 
-We can now move on to [Ønskomania 6000](/nc3/crypto/crypto_ønskomania_6000)!
+We can now move on to [Ønskomania 6000](/nc3/crypto/2025/crypto_ønskomania_6000)!
 
 ## Flag
 
