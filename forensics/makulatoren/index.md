@@ -111,9 +111,7 @@ NC3{Pokemonkort_i_2025_er_nostalgisk}
 ```
 
 ## Reflections and Learnings
--
 - JPEG forensics: SOI/EOI identification quickly anchors start/end fragments.
 - Continuity cues: Split strings (e.g., `bplist`, `xmpmeta>`) are reliable neighbor indicators.
-- OCR iteration: Enhance images (invert/contrast) and iterate until coherent phrases emerge.
-- Hints matter: Use contextual clues to prioritize promising sequences.
+- OCR iteration: Can be seriously unreliable... The human vision is just stronger!
 
