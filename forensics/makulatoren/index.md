@@ -11,7 +11,7 @@ Makulatoren
 
 ## Category:
 
-forensics
+Forensics
 
 ## Challenge Description:
 
@@ -82,7 +82,7 @@ File 21: 09f0
 We find
   - File `19`: `ffd8` → Start of Image (SOI)
   - File `15`: `ffd9` → End of Image (EOI)
-  - Chain anchors: `19 → ... → 15`
+  - So we know that the sequence should be: `19 → ... → 15`
   - Now we need to find what comes after File 19. 
   - Since the image was shredded (split), the bytes at the end of File 19 flow directly into the start of the next file. 
   - File 19 likely contains the image header (metadata). 
@@ -94,14 +94,14 @@ We find
 - Step 2 — Establish continuity: Match cut strings across fragment boundaries to find neighbors.
   - `19` ends with `bp`; `3` starts with `list` → `bplist` (Apple Property List)
   - `3` ends with `xmpm`; `11` starts with `eta>` → `xmpmeta>` (XMP Metadata)
-  - Solid start: `19 → 3 → 11`
+  - So we can now assume the following sequence: `19 → 3 → 11 → ... → 15`
 
 
 ### Trial & Error... lots of errors
-  - From here on it was A LOT of trial and error with the sequence, throughout which we also got some "Du er tæt på flaget" = "You are closed to the flag"...
+  - From here on it was A LOT of trial and error with the sequence, throughout which we also got some "Du er tæt på flaget" = "You are close to the flag"...
   - I finally got the flag with the following sequence
   - Final sequence: `19 → 3 → 11 → 21 → 13 → 4 → 14 → 17 → 15` ![solution](images/solution.jpg)
-  - The pythong script for assembling the picture can be found [here](scripts/solve_makulatoren.py)
+  - The python script for assembling the picture can be found [here](scripts/solve_makulatoren.py)
   - I tried embedding OCR scanning (to programmatically track progress), but ultimately found it much faster and more reliable to simply look at the images as they were assembled!
 
 ## Flag
