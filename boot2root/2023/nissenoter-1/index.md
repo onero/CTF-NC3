@@ -395,7 +395,7 @@ We quickly check out the headers navigation links "Forsiden", "Profil" & "Noter"
 
 ![First flag](images/First%20flag.png)
 
-Thanks to "rudolf" we can submit the first flag and move on to [Nissenoter 2](/nc3/boot2root/nissenoter-2)!
+Thanks to "rudolf" we can submit the first flag and move on to [Nissenoter 2](/nc3/boot2root/2023/nissenoter-2)!
 
 ## Flag
 

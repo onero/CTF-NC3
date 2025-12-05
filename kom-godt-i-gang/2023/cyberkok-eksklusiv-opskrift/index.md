@@ -39,7 +39,7 @@ XOXOXO
 ## Approach
 
 So yet again the "Cyberchef" has tried out some new cipher "recipe"...
-As described in [Cyberkok Hekseri](/nc3/kom-godt-i-gang/cyberkok-hekseri) it is a good idea to pay close attention to both the title and the description.
+As described in [Cyberkok Hekseri](/nc3/kom-godt-i-gang/2023/cyberkok-hekseri) it is a good idea to pay close attention to both the title and the description.
 "Ekslusiv opskrift", translated from Danish means "Exclusive recipe", where exclusive might illude to the concept of [XOR](https://en.wikipedia.org/wiki/Exclusive_or), which is short for "Exclusive or"!
 
 Seeing as the input is hexadecimals and we know that the expected flag output is text, we just need the key, which should be used for the XOR operation.

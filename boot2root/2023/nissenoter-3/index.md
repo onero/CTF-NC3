@@ -25,7 +25,7 @@ https://ncctf.haaukins.dk/
 
 ### The final enumeration
 
-Continuing from [Nissenoter 2](/nc3/boot2root/nissenoter-2) we now have foothold on the server as a user!
+Continuing from [Nissenoter 2](/nc3/boot2root/2023/nissenoter-2) we now have foothold on the server as a user!
 
 Let's immediately execute some initial enumeration and see what we can find
 
