@@ -1,6 +1,6 @@
 +++
 title = 'Makulatoren'
-categories = ['forensics']
+categories = ['Forensics']
 date = 2025-12-05T10:00:57+01:00
 scrollToTop = true
 +++
