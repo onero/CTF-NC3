@@ -1,7 +1,7 @@
 +++
 title = 'Ønskomaten v12.24'
 categories = ['Crypto']
-date = 2025-12-02T10:02:59+01:00
+date = 2025-12-02T17:12:45+01:00
 scrollToTop = true
 +++
 

@@ -1,7 +1,7 @@
 +++
 title = 'Ønskomania 6000'
 categories = ['Crypto']
-date = 2025-12-02T10:03:59+01:00
+date = 2025-12-02T18:27:49+01:00
 scrollToTop = true
 +++
 

@@ -2,7 +2,7 @@
 title = 'Gremlinshop'
 categories = ['Kom godt i gang']
 tags = ["CTF", "NC3", "Crypto", "Encoding"]
-date = 2025-12-02
+date = 2025-12-02T16:40:27+01:00
 scrollToTop = true
 author = "Onero"
 +++
