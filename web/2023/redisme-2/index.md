@@ -25,7 +25,7 @@ https://ncctf.haaukins.dk
 
 ## Approach
 
-Armed to the teeth with all the experience from enumerating [RedisMe 1](/nc3/web/redisme-1), I quickly scan for the location of the database
+Armed to the teeth with all the experience from enumerating [RedisMe 1](/nc3/web/2023/redisme-1), I quickly scan for the location of the database
 
 ```bash
 ┌──(haaukins㉿kali)-[~]

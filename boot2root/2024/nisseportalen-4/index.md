@@ -47,7 +47,7 @@ uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
 ### Getting fourth flag
 
-Thanks to "" we can submit the fourth flag and move on to the final challenge [Nisseportalen 5](/nc3/boot2root/nisseportalen-5)!
+Thanks to "" we can submit the fourth flag and move on to the final challenge [Nisseportalen 5](/nc3/boot2root/2024/nisseportalen-5)!
 
 ## Flag
 

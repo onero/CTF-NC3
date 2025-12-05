@@ -107,7 +107,7 @@ Downloaded: 1 files, 150 in 0s (16.5 MB/s)
 </html>
 ```
 
-Thanks to some simple enumeration, we can submit the first flag and move on to [Nisseportalen 2](/nc3/boot2root/nisseportalen-2)!
+Thanks to some simple enumeration, we can submit the first flag and move on to [Nisseportalen 2](/nc3/boot2root/2024/nisseportalen-2)!
 
 ## Flag
 
