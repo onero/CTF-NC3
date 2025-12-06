@@ -15,6 +15,11 @@ Warmup: Snissnap
 Kom godt i gang
 
 ## Description
+
+I 2025 er det slut med at sende breve. Post Nordpolen kan ikke klare det mere. De opfordrer til at bruge deres nye app Snissnap med ny ekstrem nissesikker kryptering. Så kan man snissnappe en besked og sende til Julemanden.
+
+De interne alarmer gik på denne loggede besked. Hvorfor dog det? Er alle børn ikke artige når de skriver til julemanden?
+
 We were given a file [snissnap_besked.txt](snissnap_besked.txt) containing a sequence of hexadecimal values. The challenge description hinted at a "Warmup" task.
 
 ## Recon
@@ -22,10 +27,10 @@ We were given a file [snissnap_besked.txt](snissnap_besked.txt) containing a seq
 The file content looked like this:
 `MWEgMDQgNGQgMDQgNDAgMDQgMzUgMDQgMjAgMDAgMmUgMDQg...`
 
-This appeared to be base64 encoded data. Decoding the base64 revealed a sequence of hex bytes:
+This appeared to be base64 encoded data. [Decoding the base64](https://gchq.github.io/CyberChef/) revealed a sequence of hex bytes:
 `1a 04 4d 04 40 04 ...`
 
-Analyzing the hex bytes, we noticed a pattern of `XX 04` and `YY 00`, which strongly suggested UTF-16 Little Endian encoding, where `04` is the high byte for Cyrillic characters and `00` is for Basic Latin.
+Analyzing the hex bytes, we noticed a pattern of `XX 04` and `YY 00`, which strongly suggested [UTF-16 Little Endian encoding](https://en.wikipedia.org/wiki/UTF-16), where `04` is the high byte for Cyrillic characters and `00` is for Basic Latin.
 
 ## Solution
 
