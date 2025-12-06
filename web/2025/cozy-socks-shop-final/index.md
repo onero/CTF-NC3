@@ -1,7 +1,7 @@
 +++
-title = 'Cozy Christmas Socks Shop (Final)'
+title = 'Cozy Christmas Socks Shop'
 categories = ['Web']
-date = 2025-12-06
+date = 2025-12-06T11:36:22+01:00
 scrollToTop = true
 +++
 
