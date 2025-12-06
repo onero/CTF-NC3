@@ -25,7 +25,7 @@ Start server på TryHackMe og tilgå hjemmesiden fra den tildelte IP-adresse
 
 https://tryhackme.com/jr/gremlinshop
 
-## Approach
+## Approach - 1st flag
 
 ### Webshop Recon: 
 We started out by visiting the storefront and browsed visible items to understand page structure and how item IDs were used.
@@ -93,8 +93,12 @@ Hidden Item (ID 13)!
 Navigating directly to the missing ID revealed a hidden product; ID 13 was the lucky find. 
 ![Flag 1](images/flag_1.png)
 
+## Approach - 2nd flag
+Now it is time to play with the login and with login there is always at least 1 thing we should remember to try!...
+![login](images/login.png)
+
 ### SQL Injection (Login)
-The login for item/user path 2 was vulnerable to SQL injection, enabling auth bypass. 
+The login for item/user path 2 was vulnerable to [SQL injection](https://portswigger.net/web-security/sql-injection), enabling auth bypass. 
 
 ```bash
 lagerlasse
@@ -103,18 +107,23 @@ lagerlasse
 
 Proof: ![Flag 2](images/flag_2.png)
 
+## Approach - Final flag
+Now on to the final flag, where we will see if the exploit works for the admin!
+
 ### Admin Insights
-Logging in as admin exposed extra user details and a lead to a user listing. Reference: [users.txt](users.txt).
+Utilising the SQL injetion to log in as admin exposed extra user details and a lead to a user listing, so we could update our [known users](users.txt).
+![admin page](images/admin.png)
 
 ### Kasse Karlo → Final Flag
-Using the insights, logging in as “Kasse Karlo” revealed the final flag. 
+Finding Karlo was key! We then SQL inject yet another user and logging in as “Kasse Karlo” revealed the final flag!
 ![Flag 3](images/flag_3.png)
 
 ## Flags
-
 ```text
 NC3{D0_no7_5tOr3_S3cr3ts_1N_br0wse4bl6_9l4ceS}
+
 NC3{4Lway5_s4ni7Ise_1nP8T}
+
 NC3{8S1nt_c4N_L34d_7o_n3W_f1nd1nGs}
 ```
 
