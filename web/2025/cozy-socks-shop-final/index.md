@@ -31,6 +31,7 @@ rustscan -a 10.82.131.15 --ulimit 5000 -- -sV --version-light
     - Utilising [ffuf](https://github.com/ffuf/ffuf) we started enumerating for secret parameters or pages (like sock=1 or page=socks)
     - Fuzzing for parameters (`/?FUZZ=1`) failed to reveal hidden parameters on the root.
     - Fuzzing for pages (`/?page=FUZZ`) revealed a hidden page: `reviews`.
+![reviews](images/reviews.png)
 
 2.  **Vulnerability Discovery**:
     - The `/reviews` page (accessed via `/?page=reviews`) contained a form submitting to `/?test=reviews`.
