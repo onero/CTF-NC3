@@ -7,7 +7,7 @@ scrollToTop = true
 
 ## Challenge Name:
 
-Cozy Christmas Socks Shop (Final)
+Cozy Christmas Socks Shop
 
 ## Category:
 
@@ -18,7 +18,6 @@ Web
 Hvem kunne ikke tænke sig et par fine julesokker? Derfor har nisserne startet deres helt egen butik, tjek deres shop og se, om der skulle være nogle interessante sokker og måske et flag.
 
 Link: https://tryhackme.com/jr/cozychristmassocksshop
-Target IP: 10.82.171.129
 
 ## Approach
 
@@ -27,7 +26,8 @@ Target IP: 10.82.171.129
 ```bash
 rustscan -a 10.82.131.15 --ulimit 5000 -- -sV --version-light
 ```
-    - Port 8080 was open, hosting a Flask web application, which also hosted a shop for socks! ![shop](images/shop.png)
+    - Port 8080 was open, hosting a Flask web application, which also hosted a shop for socks! 
+![shop](images/shop.png)
     - Utilising [ffuf](https://github.com/ffuf/ffuf) we started enumerating for secret parameters or pages (like sock=1 or page=socks)
     - Fuzzing for parameters (`/?FUZZ=1`) failed to reveal hidden parameters on the root.
     - Fuzzing for pages (`/?page=FUZZ`) revealed a hidden page: `reviews`.
