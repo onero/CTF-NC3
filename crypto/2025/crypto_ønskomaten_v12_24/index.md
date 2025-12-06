@@ -38,15 +38,15 @@ b = int.from_bytes(flag[mid:])
 m = int.from_bytes(wish.encode("latin-1"))
 c = encrypt(a * m + b)
 ```
-The encryption is performed as $c = (a \cdot m + b)^e \pmod N$.
-We can interact with the service to send arbitrary wishes $m$ and receive the corresponding ciphertext $c$.
+The encryption is performed as `$c = (a \cdot m + b)^e \pmod N$`.
+We can interact with the service to send arbitrary wishes `$m$` and receive the corresponding ciphertext `$c$`.
 
 ## Approach
 
 The public exponent $e=3$ is very small. This often hints at attacks involving small message sizes or lack of padding.
 
 We can model the encryption as:
-$c = (a \cdot m + b)^3 \pmod N$
+``$c = (a \cdot m + b)^3 \pmod N$
 
 We can send two chosen messages, for example, the characters '1' and '2'.
 In ASCII/Latin-1:
@@ -54,25 +54,25 @@ In ASCII/Latin-1:
 - '2' is 50.
 
 So we send $m_1 = 49$ and $m_2 = 50$ to get:
-1. $c_1 = (49a + b)^3 \pmod N$
-2. $c_2 = (50a + b)^3 \pmod N$
+1. `$c_1 = (49a + b)^3 \pmod N$`
+2. `$c_2 = (50a + b)^3 \pmod N$`
 
-Let $v_1 = 49a + b$ and $v_2 = 50a + b$.
-The values $v_1$ and $v_2$ might be small enough that $v_1^3 < N$ and $v_2^3 < N$. If so, the modular reduction never happens (or happens very few times), and we can simply take the integer cube root of $c_1$ and $c_2$ to recover $v_1$ and $v_2$.
+Let `$v_1 = 49a + b$ and $v_2 = 50a + b$`.
+The values `$v_1$` and `$v_2$` might be small enough that `$v_1^3 < N$ and $v_2^3 < N$`. If so, the modular reduction never happens (or happens very few times), and we can simply take the integer cube root of `$c_1$` and `$c_2$` to recover `$v_1$` and `$v_2$`.
 
 We verified this hypothesis by taking the integer cube root of the received ciphertexts. They were indeed perfect cubes.
 
 Having recovered $v_1$ and $v_2$, we have a system of two linear equations:
-1. $v_1 = 49a + b$
-2. $v_2 = 50a + b$
+1. `$v_1 = 49a + b$`
+2. `$v_2 = 50a + b$`
 
 Subtracting (1) from (2):
-$v_2 - v_1 = (50a + b) - (49a + b) = a$
+`$v_2 - v_1 = (50a + b) - (49a + b) = a$`
 
 Once we have $a$, we can find $b$:
-$b = v_1 - 49a$
+`$b = v_1 - 49a$`
 
-Finally, we convert the integers $a$ and $b$ back to bytes and concatenate them to form the flag.
+Finally, we convert the integers `$a$` and `$b$` back to bytes and concatenate them to form the flag.
 
 Final solving script can be seen [here](scripts/solve.py)
 
