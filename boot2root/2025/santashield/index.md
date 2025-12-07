@@ -40,7 +40,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 - Port 2222 immediately jumps out as a non-typical port!
 - For good measure we visit the homepage, meanwhile exploit searching for the Erlang service
-![santashield](images/)
+![santashield](images/cybershield.png)
 - After reading up on the service and potential exploits, I identified this [repository with a PoC](https://github.com/omer-efe-curkus/CVE-2025-32433-Erlang-OTP-SSH-RCE-PoC)
 - Setup a Netcat listener on my attacking machine
 - And executed the PoC, which established a reverse shell to my machine!
