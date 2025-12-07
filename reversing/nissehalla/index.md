@@ -11,7 +11,7 @@ Nissehalla
 
 ## Category:
 
-Web
+Reversing
 
 ## Challenge Description:
 
