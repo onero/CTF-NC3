@@ -91,25 +91,25 @@ def get_visited_indices(length):
 
 def find_collision():
     print("Searching for lengths with unused bytes...")
-    for l in range(10, 300):
-        visited = get_visited_indices(l)
-        if len(visited) < l:
-            unused = sorted(list(set(range(l)) - visited))
-            print(f"[!] FOUND! Length {l} has {len(unused)} unused bytes.")
+    for length in range(10, 300):
+        visited = get_visited_indices(length)
+        if len(visited) < length:
+            unused = sorted(list(set(range(length)) - visited))
+            print(f"[!] FOUND! Length {length} has {len(unused)} unused bytes.")
             print(f"    Unused indices: {unused}")
             
             # Generate files
             # File A: all 'A's
             with open("coll_a", "wb") as f:
-                f.write(b'A' * l)
+                f.write(b'A' * length)
                 
             # File B: all 'A's, but change unused byte
             with open("coll_b", "wb") as f:
-                data = bytearray(b'A' * l)
+                data = bytearray(b'A' * length)
                 data[unused[0]] = ord('B')
                 f.write(data)
                 
-            print(f"[+] Generated 'coll_a' and 'coll_b' (length {l}).")
+            print(f"[+] Generated 'coll_a' and 'coll_b' (length {length}).")
             return
             
     print("[-] No unused bytes found in range 10-300.")
