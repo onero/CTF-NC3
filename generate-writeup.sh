@@ -21,13 +21,47 @@ fi
 title_slug=$(slugify "$title")
 category_slug=$(slugify "$category")
 
-# Directory path
-category_dir="./$category_slug"
-challenge_dir="$category_dir/$title_slug"
+# Map category slug to repository folder names
+declare -A CATEGORY_MAP
+CATEGORY_MAP[
+    "crypto"
+]="crypto"
+CATEGORY_MAP[
+    "web"
+]="web"
+CATEGORY_MAP[
+    "malware"
+]="malware"
+CATEGORY_MAP[
+    "forensics"
+]="forensics"
+CATEGORY_MAP[
+    "kom-godt-i-gang"
+]="kom-godt-i-gang"
+CATEGORY_MAP[
+    "boot2root"
+]="boot2root"
+CATEGORY_MAP[
+    "det-store-nissehack"
+]="Det-store-nissehack"
+
+# Resolve category directory using mapping, fallback to slug
+repo_category_dir=${CATEGORY_MAP[$category_slug]:-$category_slug}
+category_dir="./$repo_category_dir"
+
+# Determine year from provided date (fallback to current year)
+year=$(date -d "$date" +%Y 2>/dev/null)
+if [ -z "$year" ]; then
+    year=$(date +%Y)
+fi
+
+# Directory path with year
+year_dir="$category_dir/$year"
+challenge_dir="$year_dir/$title_slug"
 
 # Create category directory if it doesn't exist
-if [ ! -d "$category_dir" ]; then
-    mkdir -p "$category_dir"
+if [ ! -d "$year_dir" ]; then
+    mkdir -p "$year_dir"
 fi
 
 # Create challenge directory
