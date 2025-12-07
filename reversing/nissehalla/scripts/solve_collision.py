@@ -17,6 +17,9 @@ def get_visited_indices(length):
     # So initial r9 = (Calculated from length)
     
     # 17b3: mul r15 (rax = 0x2492492492492493 * len)
+    #    The constant 0x2492492492492493 is a fixed-point approximation for 1/7,
+    #    used here to efficiently compute integer division by 7 (i.e., len // 7)
+    #    in assembly without using a division instruction.
     # 17b6: mov rax, r15
     # 17b9: sub rax, rdx
     # 17bc: shr rax, 1
