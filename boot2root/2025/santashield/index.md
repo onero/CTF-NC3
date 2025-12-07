@@ -63,6 +63,6 @@ NC3{flag1:m3rRy_pwN1N9_Th4t_Cv3}
 ## Reflections and Learnings
 - Recon matters: The atypical `2222/tcp` port stood out early and guided focus toward non-standard services. Taking time to fingerprint protocols (here, Erlang SSH) quickly narrowed the exploit surface.
 - Read before running: Verifying PoC details and version applicability avoided blind execution. Mapping service banners to CVE advisories saved time and reduced noise.
-- Strenghen foothold: The inital reverse shell on port 2222 was a poor shell experience, so I immediately added my id_rsa.pub to the ~/.ssh/authorized_keys in order to be able to ssh into the box!
+- Strengthen foothold: The inital reverse shell on port 2222 was a poor shell experience, so I immediately added my id_rsa.pub to the ~/.ssh/authorized_keys in order to be able to ssh into the box!
 - Defensive takeaways: Exposing administrative or exotic services on non-standard ports is not protection. Version management, reducing attack surface, and strict SSH configuration would have mitigated this.
 - Next improvements: Automate detection for Erlang/OTP SSH fingerprints in recon tooling, add a quick checklist for PoC validation, and script a safer payload wrapper to standardize reverse shell handling.
