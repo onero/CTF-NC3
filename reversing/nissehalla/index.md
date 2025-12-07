@@ -26,7 +26,7 @@ https://tryhackme.com/jr/nissehalla2o25v1
 
 1.  **Reconnaissance**:
     - [Scanning](https://github.com/bee-san/RustScan) the target IP revealed port 8080 was open.
-    - Visiting `http://10.82.175.234:8080` showed a "Nissehalla" access page with a form requiring two files (`fileA` and `fileB`).
+    - Visiting `http://<IP>:8080` showed a "Nissehalla" access page with a form requiring two files (`fileA` and `fileB`).
     ![nissehalla](images/home.png)
 
 2.  **Reverse Engineering**:
