@@ -1,15 +1,32 @@
-name: Notify aCTF-Writeup on Updates
+name: PR Auto Assign & Label + Notify aCTF-Writeup
 
 on:
   push:
     branches:
       - master
   pull_request:
-    types: [closed]
+    types: [opened, synchronize, reopened, closed]
     branches:
       - master
 
 jobs:
+  pr_automation:
+    name: Auto-assign and label PRs
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Add assignee
+        uses: actions-ecosystem/action-add-assignees@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          assignees: onero
+
+      - name: Add label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: documentation
+
   dispatch:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.pull_request.merged == true))
