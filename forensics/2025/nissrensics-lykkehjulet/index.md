@@ -1,7 +1,7 @@
 +++
 title = 'Nissrensics: Lykke(h)julet'
-categories = ['Malware']
-tags = ["CTF", "NC3", "Malware", "WordWheelQuery", "Windows Registry"]
+categories = ['Forensics']
+tags = ["CTF", "NC3", "Forensics", "WordWheelQuery", "Windows Registry"]
 date = 2025-12-11T21:40:00+01:00
 scrollToTop = true
 author = "Loff"
@@ -13,7 +13,7 @@ Nissrensics: Lykke(h)julet
 
 ## Category:
 
-Malware
+Forensics
 
 ## Challenge Description:
 

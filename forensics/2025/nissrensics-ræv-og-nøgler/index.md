@@ -1,7 +1,7 @@
 +++
 title = 'Nissrensics: Ræv og Nøgler'
-categories = ['Malware']
-tags = ["CTF", "NC3", "Malware", "Firefox"]
+categories = ['Forensics']
+tags = ["CTF", "NC3", "Forensics", "Firefox"]
 date = 2025-12-11T21:10:00+01:00
 scrollToTop = true
 author = "Loff"
@@ -13,7 +13,7 @@ Nissrensics: Ræv og Nøgler
 
 ## Category:
 
-Malware
+Forensics
 
 ## Challenge Description:
 

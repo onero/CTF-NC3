@@ -1,7 +1,7 @@
 +++
 title = 'Nissrensics: Mørkets Dal'
-categories = ['Malware']
-tags = ["CTF", "NC3", "Malware", "VSS", "MFT"]
+categories = ['Forensics']
+tags = ["CTF", "NC3", "Forensics", "VSS", "MFT"]
 date = 2025-12-11T21:20:00+01:00
 scrollToTop = true
 author = "Loff"
@@ -13,7 +13,7 @@ Nissrensics: Mørkets Dal
 
 ## Category:
 
-Malware
+Forensics
 
 ## Challenge Description:
 ```text

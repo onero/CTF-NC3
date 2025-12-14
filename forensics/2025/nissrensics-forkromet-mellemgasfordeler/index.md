@@ -1,7 +1,7 @@
 +++
 title = 'Nissrensics: Forkromet Mellemgasfordeler'
-categories = ['Malware']
-tags = ["CTF", "NC3", "Malware", "Chrome"]
+categories = ['Forensics']
+tags = ["CTF", "NC3", "Forensics", "Chrome"]
 date = 2025-12-11T21:30:00+01:00
 scrollToTop = true
 author = "Loff"
@@ -13,7 +13,7 @@ author = "Loff"
 
 ## Category:
 
-Malware
+Forensics
 
 ## Challenge Description:
 ```text

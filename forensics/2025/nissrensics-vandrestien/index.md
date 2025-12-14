@@ -1,7 +1,7 @@
 +++
 title = 'Nissrensics: Vandrestien'
-categories = ['Malware']
-tags = ["CTF", "NC3", "Malware"]
+categories = ['Forensics']
+tags = ["CTF", "NC3", "Forensics"]
 date = 2025-12-11T21:00:00+01:00
 scrollToTop = true
 author = "Loff"
@@ -13,7 +13,7 @@ Nissrensics: Vandrestien
 
 ## Category:
 
-Malware
+Forensics
 
 ## Challenge Description:
 
