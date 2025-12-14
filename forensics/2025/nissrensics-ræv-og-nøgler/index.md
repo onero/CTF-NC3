@@ -40,7 +40,7 @@ The goal was to determine:
 
 Inspecting Firefox’s web history revealed extensive browsing on BR.dk, a major Danish toy retailer:
 
-![alt text](images/firefox-web-history.png)
+![Firefox web history](images/firefox-web-history.png)
 
 The browsing pattern shows navigation through multiple toy categories, consistent with shopping behavior. Toward the end of the session history, the activity suggests that a purchase or account interaction occurred, possibly involving a gift card.
 
@@ -84,6 +84,8 @@ Password: 'NC3{Ildraevens_hemmelighed_brudt}'
 There are minor encoding issues with the NC3 login password, but this does not affect the outcome.
 
 The important takeaway is that no master password was set, allowing full credential recovery from the local Firefox profile.
+
+Series continues in [Mørkets dal](../nissrensics-mørkets-dal/index.md)
 
 ## Flag
 ```text

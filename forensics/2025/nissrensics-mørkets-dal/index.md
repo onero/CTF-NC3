@@ -89,7 +89,6 @@ The long processing time was actually a good sign, it indicated a large and rich
 
 ## Identifying the File in $LogFile
 
-
 From the parsers output, I used LogFile_FileNames.csv to locate `flag.rtf`:
 
 ```text
@@ -232,7 +231,9 @@ Browsing to the user’s Documents folder revealed earlier versions of the .rtf 
 
 Opening the historical flag.rtf and computer.rtf showed the same flag and login recovered earlier via $LogFile:
 
-![alt text](images/shadow-volume-copy-flag.png)
+![Flag found in the Shadow Volume Copy](images/shadow-volume-copy-flag.png)
+
+Challenge series continues in [Forkromet Mellemgasfordeler](../nissrensics-forkromet-mellemgasfordeler/index.md)
 
 ## Flag
 ```text

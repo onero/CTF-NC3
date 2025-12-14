@@ -77,10 +77,12 @@ And so on.
 
 After descending roughly 10 directory levels deep, I eventually reached a file named:
 
-![alt text](images/flag.png)
+![Flag](images/flag.png)
 
 Inside this file was the first flag.
 Notably, the flag was split and formatted in a way that makes it difficult to find via simple keyword searches, reinforcing the challenge’s hint that this was about walking the filesystem, not shortcutting it.
+
+Next part of the series is 
 
 ## Flag
 ```text

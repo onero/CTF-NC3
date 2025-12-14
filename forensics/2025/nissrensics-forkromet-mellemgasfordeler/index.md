@@ -109,7 +109,7 @@ The system booted successfully:
 
 The VM presented a Windows login screen. Interestingly with Russian localization:
 
-![alt text](images/vm-start.png)
+![VM starts](images/vm-start.png)
 
 Using the recovered credentials:
 
@@ -136,6 +136,8 @@ Chrome prompted for the Windows password (which we already had).
 ![Chrome password manager on the VM](images/vm-chrome-password-manager.png)
 
 And there it was, the stored credential containing the flag.
+
+Final part of this series can be found in [Lykke(H)julet](../nissrensics-lykkehjulet/index.md)
 
 ## Flag
 ```text
