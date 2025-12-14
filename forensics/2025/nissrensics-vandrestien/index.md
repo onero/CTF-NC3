@@ -50,7 +50,7 @@ A good rule of thumb in Windows forensics is to start with user-controlled locat
 * AppData (often very important later)
 
 Other things of note:
-* The disc have both Edge, Firefox and Chrome installed.
+* The disk have both Edge, Firefox and Chrome installed.
 * The timeline shows that the order went:
   * Edge - checked their IP (myip.com), downloaded Firefox and installed it.
   * Firefox - browsed around quite a bit more:
