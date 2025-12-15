@@ -1,7 +1,7 @@
 +++
 title = 'SantaShield Part 2'
 categories = ['Boot2Root']
-date = 2025-12-08T10:30:00+01:00
+date = "2025-12-08T10:30:00+01:00"
 scrollToTop = true
 +++
 
@@ -19,11 +19,11 @@ Vigtignissen fører sig frem med sit nye nissekonsulenthus SantaShield Security,
 
 https://tryhackme.com/jr/santashieldsecurity2o25
 
-Continuing from [SantaShield Part 1](../santashield/index.md), we have initial access as the `user` account on the target system. Now we must escalate privileges and find a way to escalate our privileges and find the next flag!
+Continuing from [SantaShield Part 1](../santashield/index.md), we have initial access as the `user` account on the target system. Now we must find a way to escalate our privileges and find the next flag!
 
 ## Approach
 
-### Enumeration with Linenum
+### Enumeration with LinEnum
 
 After obtaining initial access as the `user` account, I transferred [linenum.sh](https://github.com/rebootuser/LinEnum) to the target to automate privilege escalation and vulnerability detection:
 
@@ -185,12 +185,12 @@ And by means of testing out what is available to us, we are finally able to read
 ## Flag
 
 ```text
-NC3{flag2:c0nf1g_exp0s3d}
+NC3{flag2:RUnn1ng_OuT_of_j41l_or_Not}
 ```
 
 ## Reflections and Learnings
 
-- **Multi-vector enumeration**: Linenum revealed not just privilege escalation paths, but also exposed dangerous systemd service configurations. Automated tools uncover what manual inspection might miss.
+- **Multi-vector enumeration**: LinEnum revealed not just privilege escalation paths, but also exposed dangerous systemd service configurations. Automated tools uncover what manual inspection might miss.
 - **Systemd as an attack surface**: Service files often contain sensitive operations. Reviewing all services—especially custom ones like `ncl.service`—is critical during post-exploitation.
 - **Distraction and persistence**: The `restart_admin` script was a deliberate distraction. Not every discovery leads to exploitation; verify feasibility before sinking time into dead ends.
 - **Implicit trust in local services**: The system allowed an unprivileged user to restart services and read from them, creating a privilege escalation bridge even without direct escalation.
