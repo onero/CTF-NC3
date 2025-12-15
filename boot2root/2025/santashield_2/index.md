@@ -25,7 +25,7 @@ Continuing from [SantaShield Part 1](../santashield/index.md), we have initial a
 
 ### Enumeration with Linenum
 
-After obtaining initial access as the `user` account, we transferred [linenum.sh](https://github.com/rebootuser/LinEnum) to the target to automate privilege escalation and vulnerability detection:
+After obtaining initial access as the `user` account, I transferred [linenum.sh](https://github.com/rebootuser/LinEnum) to the target to automate privilege escalation and vulnerability detection:
 
 ```bash
 $ bash linenum.sh > linenum.txt
