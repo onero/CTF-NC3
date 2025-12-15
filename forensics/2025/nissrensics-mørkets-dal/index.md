@@ -97,7 +97,6 @@ Offset|lf_LSN|MftRef|MftRefSeqNo|FileName
 0x02417F88|2772971513|159084|6|flag.rtf
 ```
 
-
 MFT Reference `159084` uniquely identifies the file in the NTFS Master File Table.
 This allows us to correlate all logged operations related to that file
 
@@ -209,15 +208,16 @@ After completing the challenge and discussing it with the creator, I learned the
 
 Windows periodically creates Volume Shadow Copies, which store historical versions of files. These can often be explored even without administrator access on the original system.
 
-By mounting the disk image as a drive, these shadow copies become accessible.
-
-I used [Arsenal Image mounter](https://arsenalrecon.com/products/arsenal-image-mounter), though [FTK imager](https://www.exterro.com/digital-forensics-software/ftk-imager) works just as well.
-
-
 From Autopsy, we know there's a Windows shadow volume copy in the `System Volume Information` folder, recognized by the filename `{Shadow copy UUID}{3808876b-c176-4e48-b7ae-04046e6cc752}`:
 
 ![Autopsy Shadow Volume Copy](images/shadow-volume-copy.png)
 
+By mounting the disk image as a drive, these shadow copies become accessible.
+
+I used [Arsenal Image mounter](https://arsenalrecon.com/products/arsenal-image-mounter), though [FTK imager](https://www.exterro.com/digital-forensics-software/ftk-imager) works just as well.
+
+The result is a new drive on my computer, with the image' content ready for exploration:
+![Mounted shadow copy as a disk image](images/mounted-disc-image.png)
 
 ## Exploring the Shadow Copy
 
