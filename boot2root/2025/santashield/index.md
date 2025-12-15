@@ -54,6 +54,8 @@ user
 
 - The flag was in the user home folder
 
+Next part continues [here](../santashield_2/index.md)
+
 ## Flag
 
 ```text
