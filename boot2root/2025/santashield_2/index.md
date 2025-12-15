@@ -40,12 +40,12 @@ lrwxrwxrwx 1 root root   39 Nov 21 06:36 admin-shell.service -> /etc/systemd/sys
 
 ### Initial Dead End: restart_admin Script
 
-We discovered the `restart_admin` executable with curious permissions:
+I discovered the `restart_admin` executable with curious permissions:
 - **Readable and executable by the `user` account**
 - **Requires elevated privileges to execute effectively**
 - Points to `/etc/systemd/system/admin-shell.service`
 
-We spent considerable time analyzing this script, attempting to exploit it for privilege escalation. However, it proved to be a red herring—the real vulnerability lay elsewhere.
+I spent considerable time analyzing this script, attempting to exploit it for privilege escalation. However, it proved to be a red herring—the real vulnerability lay elsewhere.
 
 ### Discovery: ncl.service
 
@@ -98,13 +98,13 @@ The `ncl.service` is configured to:
 2. Start a netcat listener on localhost port **6666**
 3. Serve the admin's private SSH key (`/home/admin/.ssh/id_rsa`) to anyone who connects
 
-Despite our `user` account lacking direct privilege escalation paths, we can restart this service and retrieve the key:
+Despite our `user` account lacking direct privilege escalation paths, I can restart this service and retrieve the key:
 
 ```bash
 /usr/bin/systemctl restart ncl.service
 ```
 
-Once the service is restarted, we connect to the exposed port:
+Once the service is restarted, I connect to the exposed port:
 
 ```bash
 nc 127.0.0.1 6666
@@ -155,7 +155,7 @@ iyrkCsUi5lP6yNAAAAC3Jvb3RAZGViaWFuAQIDBAUGBw==
 
 ### SSH Login as Admin
 
-With the private key, we can now authenticate as the `admin` user:
+With the private key, I can now authenticate as the `admin` user:
 
 ```bash
 chmod 600 id_rsa
