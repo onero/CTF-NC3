@@ -107,7 +107,7 @@ Sudo versions **1.9.14 through 1.9.17** are vulnerable to [CVE-2025-32463](https
 
 We leverage a public proof-of-concept from [pr0v3rbs/CVE-2025-32463_chwoot](https://github.com/pr0v3rbs/CVE-2025-32463_chwoot/tree/main).
 
-The exploit script (`sudo-chwoot.sh`) automates the attack by:
+The exploit script [sudo-chwoot.sh](./sudo-chwoot.sh) automates the attack by:
 1. Creating a temporary chroot environment
 2. Invoking sudo with crafted arguments that trigger the privilege escalation bug
 3. Breaking out of chroot and elevating to root
@@ -142,20 +142,6 @@ NC3{flag3:m3RRY_R007-R007!_4ND_xM4s}
 - **Rbash escapes require creativity**: Restricted shells can often be bypassed via interpreters (Python, Perl, Awk) or commands that allow arbitrary execution. Testing available binaries and their command-line options is essential.
 - **Reverse shells restore control**: When direct shell modification is blocked, establishing a reverse shell through network-capable interpreters bypasses many restrictions and provides a clean environment.
 - **SUID enumeration is fundamental**: Automated tools like `find` for SUID binaries, combined with version checks, quickly surface privilege escalation vectors. Always verify versions against known CVEs.
-- **Dead ends teach patience**: Both `restart_admin` (in Part 2 and Part 3) served as distractions. Not every discovery leads to exploitation—validate hypotheses quickly and move on when blocked.
+- **Dead ends teach patience**: Both `restart_admin` (in Part 2 and Part 3) served as distractions. Not every discovery leads to exploitation—validate hypotheses quickly and move on when blocked... I need to practice this!
 - **CVE research accelerates exploitation**: Recognizing that sudo 1.9.14-1.9.17 is vulnerable to CVE-2025-32463 turned hours of manual testing into minutes with a PoC. Maintain awareness of recent disclosures and public exploits.
-- **Chaining techniques is key**: This challenge required (1) rbash escape, (2) environment restoration, (3) SUID enumeration, (4) version fingerprinting, and (5) CVE exploitation—each step built on the last.
-
-### Defensive Takeaways
-
-- **Rbash is insufficient for security**: Restricted shells provide a thin layer of protection. Dedicated sandboxing (containers, AppArmor, SELinux) is far more effective.
-- **Patch sudo immediately**: CVE-2025-32463 is critical. Upgrade to sudo 1.9.18+ or apply vendor patches urgently.
-- **Audit SUID binaries**: Minimize the number of SUID executables on production systems. Custom SUID binaries (`restart_admin`) increase attack surface without clear benefit.
-- **Monitor reverse shell activity**: Outbound connections from user accounts to uncommon ports should trigger alerts. Network segmentation and egress filtering limit post-compromise lateral movement.
-- **Environment hardening**: Disable unnecessary interpreters in restricted contexts. If Python/Perl must exist, use mandatory access controls to prevent execution of untrusted code.
-
-### Next Steps for Future Challenges
-
-- Script common rbash escape techniques into a reusable toolkit for faster breakouts.
-- Maintain a curated CVE database for privilege escalation vulnerabilities in common services (sudo, polkit, kernel).
-- Practice exploiting chroot escapes and namespace manipulation to understand containerization weaknesses.
+- **Potentially skipping the admin part**: Because of the chroot exploit, if discovered (and investigated) initally, one could go directly from user to root and simply grab the admin flag with root access, which would be a pity considering all the fun with exploring the ncl.service in our [admin](../santashield_2/index.md) journey! Therefore I enjoyed the final PrivEsc less so than the first, but all in all it was an outstanding Boot2Root series!
