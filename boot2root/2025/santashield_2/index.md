@@ -182,6 +182,8 @@ NC3{flag2:RUnn1ng_OuT_of_j41l_or_Not}
 
 And by means of testing out what is available to us, we are finally able to read the flag with the less command!
 
+Stay tuned for the [final part](../santashield_3/index.md), where we go for root and glory!
+
 ## Flag
 
 ```text
