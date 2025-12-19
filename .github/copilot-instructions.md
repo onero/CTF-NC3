@@ -100,7 +100,7 @@ When reviewing PRs, verify:
 - [ ] Approach section provides clear solution steps
 - [ ] **All images in `images/` folder are referenced in the writeup**
 - [ ] **All scripts in `scripts/` folder are referenced in the writeup**
-- [ ] **All files in `files/` folder are referenced or explained in the writeup**
+- [ ] **All files in `files/` folder are referenced in the writeup**
 
 ## Common Issues to Flag
 
@@ -110,7 +110,7 @@ When reviewing PRs, verify:
 4. **Broken image/script paths** - Ensure references match actual file locations
 5. **Inconsistent formatting** - Code blocks must have language spec
 6. **Incomplete writeups** - Approach section should be substantive
-7. **Unreferenced assets** - Flag any images, scripts, or files in their respective folders that are not referenced or used in the writeup. Every asset file should serve a purpose and be mentioned in the markdown content.
+7. **Unreferenced assets** - Flag any images, scripts, or files in their respective folders that are not referenced in the writeup. Every asset file should serve a purpose and be mentioned in the markdown content.
 
 ## Categories
 
