@@ -5,7 +5,19 @@ This repository serves as a comprehensive archive of our team's journey through 
 
 # Adding a writeup
 
-Please use generate-writeups.sh for auto templating of a new writeup!
+Please use `generate-writeup.sh` for auto-templating of a new writeup!
+
+For a complete guide on creating, previewing locally with Hugo, and submitting writeups, see **[CONTRIBUTING.md](CONTRIBUTING.md)**.
+
+## Quick Preview Workflow
+
+1. Generate writeup: `./generate-writeup.sh`
+2. Write your solution in the generated `index.md`
+3. Clone the blog: `git clone https://github.com/onero/aCTF-Writeup.git`
+4. Check out your branch in the `content/NC3` submodule
+5. Run `hugo server -D` and view at `http://localhost:1313`
+
+Full details in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 # About Us
 

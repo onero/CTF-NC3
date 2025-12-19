@@ -1,5 +1,5 @@
 +++
-title = 'SantaShield'
+title = 'SantaShield Part 1'
 categories = ['Boot2Root']
 date = "2025-12-01T20:26:31+01:00"
 scrollToTop = true
@@ -7,7 +7,7 @@ scrollToTop = true
 
 ## Challenge Name:
 
-SantaShield
+SantaShield Part 1
 
 ## Category:
 
@@ -53,6 +53,8 @@ user
 ```
 
 - The flag was in the user home folder
+
+Next part continues [here](../santashield_2/index.md)
 
 ## Flag
 
